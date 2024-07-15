@@ -46,3 +46,11 @@ Section:NewButton("Check Key", "", function()
     IncorrectKeyNotification()
     end
 end)
+
+Section:NewButton("Key Link", "Click to copy key link", function()
+    game:GetService("StarterGui"):SetCore("SendNotification", { 
+        Title = "Copyied Key Link!";
+        Text  = "Go paste the link to any browser ";
+        Icon  = "rbxthumb://type=Asset&id=17328930447&w=150&h=150"})
+    Duration = 5;
+end)
