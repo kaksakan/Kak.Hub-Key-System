@@ -1,0 +1,48 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Player = game.Players.LocalPlayer
+local Window = Library.CreateLib("Kak.Hub Key System", "DarkTheme")
+
+
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+    Title = "Logged in!";
+    Text  = "Logged in as "..Player.Name..".";
+    Icon  = "rbxthumb://type=Asset&id=17328930447&w=150&h=150"})
+Duration = 10;
+
+_G.Key = "Kak.HubOnTop"
+_G.KeyInput = "string"
+
+function MakeScriptHub()
+loadstring(game:HttpGet("https://pastefy.app/nVPY26wd/raw"))()
+end
+
+function CorrectKeyNotification()
+    game:GetService("StarterGui"):SetCore("SendNotification", { 
+        Title = "Correct Key!";
+        Text  = "You entered correct key.";
+        Icon  = "rbxthumb://type=Asset&id=17328930447&w=150&h=150"})
+    Duration = 5;
+end
+
+function IncorrectKeyNotification()
+    game:GetService("StarterGui"):SetCore("SendNotification", { 
+        Title = "Wrong Key!";
+        Text  = "You entered incorrect key.";
+        Icon  = "rbxthumb://type=Asset&id=17328930447&w=150&h=150"})
+    Duration = 5;
+end
+local Tab = Window:NewTab("Key System")
+local Section = Tab:NewSection("Enter Key")
+
+Section:NewTextBox("Enter Key", "", function(Value)
+	_G.KeyInput = Value
+end)
+
+Section:NewButton("Check Key", "", function()
+    if _G.KeyInput == _G.Key then
+    MakeScriptHub()
+    CorrectKeyNotification()
+    else
+    IncorrectKeyNotification()
+    end
+end)
